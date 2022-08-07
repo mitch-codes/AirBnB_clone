@@ -11,8 +11,7 @@ class BaseModel():
         self.id = str(uuid.uuid4())
         self.created_at = datetime.utcnow().isoformat()
         self.updated_at = self.created_at
-        self.__dict__['__class__'] = __class__.__name__
-        print(self.__str__)
+        self.__dict__['__class__'] = self.__class__.__name__
 
     def save(self):
         """update the time updated"""
@@ -20,4 +19,11 @@ class BaseModel():
 
     def __str__(self):
         """change the __str__ variable"""
-        return "[{}] ({}) {}".format(__class__.__name__, self.id, self.__dict__)
+        return "[" + self.__class__.__name__ + "]" + "(" + self.id + ")" + str(self.__dict__)
+
+    def to_dict(self):
+        my_dict = {}
+        for key, value in self.__dict__.items():
+            my_dict[key] = value
+        return my_dict
+
