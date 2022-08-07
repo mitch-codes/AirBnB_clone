@@ -12,11 +12,7 @@ class BaseModel():
         self.created_at = datetime.utcnow().isoformat()
         self.updated_at = datetime.utcnow().isoformat()
         self.__dict__['__class__'] = __class__.__name__
-        print(self.__dict__)
 
     def save(self):
         """update the time updated"""
         self.updated_at = datetime.today().isoformat()
-
-
-m = BaseModel()
