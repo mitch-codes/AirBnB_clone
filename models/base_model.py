@@ -2,6 +2,7 @@
 import uuid
 from datetime import datetime
 
+
 class BaseModel():
     """this class creates a base"""
 
@@ -16,5 +17,6 @@ class BaseModel():
     def save(self):
         """update the time updated"""
         self.updated_at = datetime.today().isoformat()
+
 
 m = BaseModel()
