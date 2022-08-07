@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""base of the project"""
 import uuid
 from datetime import datetime
 
@@ -19,7 +20,7 @@ class BaseModel():
     def __str__(self):
         """change the __str__ variable"""
         return "[" + self.__class__.__name__ + "] " +\
-        "(" + self.id + ") " + str(self.__dict__)
+            "(" + self.id + ") " + str(self.__dict__)
 
     def to_dict(self):
         """create personal dict from __dict__"""
