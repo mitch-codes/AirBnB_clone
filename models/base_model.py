@@ -18,7 +18,8 @@ class BaseModel():
 
     def __str__(self):
         """change the __str__ variable"""
-        return "[" + self.__class__.__name__ + "] " + "(" + self.id + ") " + str(self.__dict__)
+        return "[" + self.__class__.__name__ + "] " +\
+        "(" + self.id + ") " + str(self.__dict__)
 
     def to_dict(self):
         """create personal dict from __dict__"""
@@ -27,4 +28,3 @@ class BaseModel():
             my_dict[key] = value
         my_dict['__class__'] = self.__class__.__name__
         return my_dict
-
