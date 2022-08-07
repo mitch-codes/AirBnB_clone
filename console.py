@@ -4,8 +4,11 @@ import sys
 
 """command line tool in python"""
 
+
 class CommandLine(cmd.Cmd):
-    intro = 'welcome to the python command line tool.   Type help or ? to list commands \n'
+    """make a python command line"""
+    intro = 'welcome to the python command line tool. \
+            Type help or ? to list commands \n'
     prompt = '(hbnb)'
     file = None
 
@@ -18,6 +21,7 @@ class CommandLine(cmd.Cmd):
         'exit the command line'
         print("you have exit the command line")
         return True
+
 
 if __name__ == '__main__':
     cm = CommandLine()
