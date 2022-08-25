@@ -1,4 +1,2 @@
-# AIRBNB Clone
----
-This a program that tries to replicate the functionality of the airbnb website.
-It enables users to create reservations and shows which properties are available for occupation
+# The Console's Models
+This model contains implementations for basic functional methods for the console's model
