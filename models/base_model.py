@@ -7,7 +7,19 @@ import uuid
 from datetime import datetime
 
 class BaseModel:
-    """base model class that create all objects"""
+    """base model class that create all objects
+    
+    Atributes:
+        id(str): a universaly unique id for each user
+        creared_at: the time user or object was created
+        updated_at: the time changes were last made
+    
+    Methods:
+        __str__: prints string representation of our object
+        save(self): updates updated_at variable
+        to_dict(self): returns a dictionary of all instance variables
+    
+    """
 
     def __init__(self):
         """constructor class"""
