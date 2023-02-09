@@ -5,6 +5,7 @@ Custom base class for the entire project
 
 import uuid
 from datetime import datetime
+import models
 
 class BaseModel:
     """base model class that create all objects
