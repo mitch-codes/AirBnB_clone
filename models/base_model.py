@@ -10,9 +10,9 @@ import models
 class BaseModel:
     """base model class that create all objects
     
-    Atributes:
-        id(str): a universaly unique id for each user
-        creared_at: the time user or object was created
+    Attributes:
+        id(str): a universally unique id for each user
+        created_at: the time user or object was created
         updated_at: the time changes were last made
     
     Methods:
