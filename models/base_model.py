@@ -20,7 +20,8 @@ class BaseModel:
         return "[{}] ({}) {}".format(__class__.__name__, self.id, self.__dict__)
 
     def save(self):
-        """update the updated at instance variable"""
+        """update the updated at instance variable
+        """
         self.updated_at = datetime.now()
 
     def to_dict(self):
