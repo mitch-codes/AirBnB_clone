@@ -30,7 +30,7 @@ class BaseModel:
         if kwargs:
             for key, value in kwargs.items():
                 if (key == created_at or key == updated_at):
-                    self.key = value
+                    self.key = datetime.strptime(value)
                 else:
                     self.key = value
 
