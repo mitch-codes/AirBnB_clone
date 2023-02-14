@@ -43,7 +43,7 @@ class TestBaseModel(unittest.TestCase):
     def test_to_dict(self):
         base = BaseModel()
         my_dict = base.to_dict()
-        self.assertEqual("<class 'dict'>", str(type(my_dict)))
+        self.assertEqual(base.id, my_dict["id"])
 
     def test_datetime(self):
         """
