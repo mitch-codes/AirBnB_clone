@@ -19,16 +19,17 @@ class FileStorage:
     
     def new(self, obj):
         """sets __object width object and object.id as key"""
-        __objects[str(odj.id)] = obj
+        myId = obj.__class__.__name__ + "." + obj.id
+        self.__objects[myId] = obj.to_dict()
     
     def save(self):
         """write json data into file"""
         with open(__file_path, w) as f:
-            data = json.dumps(__objects)
+            data = json.dumps(self.__objects)
             f.write(data)
 
     def reload(self):
         """deserialize json data in file"""
         with open (__file_path, r) as f:
             data = f.read()
-            __objects = json.loads(data)
+            self.__objects = json.loads(data)
