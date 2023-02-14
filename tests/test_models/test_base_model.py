@@ -40,6 +40,10 @@ class TestBaseModel(unittest.TestCase):
         my_model.number = 89
         self.assertEqual([my_model.name, my_model.number],
                          ["ALX", 89])
+    def test_to_dict(self):
+        base = BaseModel()
+        my_dict = base.to_dict()
+        self.assertEqual("<class 'dict'>", str(type(my_dict)))
 
     def test_datetime(self):
         """
