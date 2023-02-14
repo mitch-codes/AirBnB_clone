@@ -24,6 +24,13 @@ class TestBaseModel(unittest.TestCase):
         """
         pass
 
+    def test_save(self):
+        base = BaseModel()
+        oldTime = base.updated_at
+        base.save()
+        newTime = base.updated_at
+        self.assertNotEqual(oldTime, newTime)
+
     def test_basic(self):
         """
         Tests basic imputs for the BaseModel class
