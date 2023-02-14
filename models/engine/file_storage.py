@@ -10,12 +10,12 @@ from models.base_model import BaseModel
 class FileStorage:
     """class used to serialize and deserialize objects into files"""
     
-    __file_path = ""
+    __file_path = "file.json"
     __objects = {}
     
     def all(self):
         """return dictionary of objects"""
-        return (__objects)
+        return (self.__objects)
     
     def new(self, obj):
         """sets __object width object and object.id as key"""
