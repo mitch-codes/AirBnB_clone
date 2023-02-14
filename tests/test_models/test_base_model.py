@@ -41,9 +41,17 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual([my_model.name, my_model.number],
                          ["ALX", 89])
     def test_to_dict(self):
+        """test if to_dict returns right dict"""
         base = BaseModel()
         my_dict = base.to_dict()
         self.assertEqual(base.id, my_dict["id"])
+
+    def test_str(self):
+        """assert that str function is correct"""
+        base = BaseModel()
+        base.name = "mimi"
+        my_dict = str(base)
+        self.assertIn("'name': 'mimi'", my_dict)
 
     def test_datetime(self):
         """
