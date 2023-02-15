@@ -24,7 +24,7 @@ class FileStorage:
     
     def save(self):
         """write json data into file"""
-        with open(self.__file_path, "w") as f:
+        with open(self.__file_path, "w+") as f:
             data = json.dumps(self.__objects)
             f.write(data)
 
