@@ -20,7 +20,7 @@ class FileStorage:
     def new(self, obj):
         """sets __object width object and object.id as key"""
         myId = obj.__class__.__name__ + "." + obj.id
-        self.__objects[myId] = obj.to_dict()
+        self.__objects[myId] = obj
     
     def save(self):
         """write json data into file"""
