@@ -30,6 +30,9 @@ class FileStorage:
 
     def reload(self):
         """deserialize json data in file"""
-        with open (self.__file_path, "r") as f:
-            data = f.read()
-            self.__objects = json.loads(data)
+        try:
+            with open (self.__file_path, "r") as f:
+                data = f.read()
+                self.__objects = json.loads(data)
+        except:
+            pass
