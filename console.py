@@ -15,6 +15,10 @@ class HBNBCommand(cmd.Cmd):
     def do_EOF(self, line):
         """exit the program"""
         return True
+
+    def do_quit(self, line):
+        """exit the program"""
+        return True
     
     def emptyline(self):
         """action to take on empty line"""
