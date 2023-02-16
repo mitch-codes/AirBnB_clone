@@ -10,14 +10,14 @@ class HBNBCommand(cmd.Cmd):
     """a class that inherits from cmd"""
 
     intro = "this is my cmd"
-    prompt = "(hbnb) "
+    prompt = "(hbnb)"
 
     def do_EOF(self, line):
         """exit the program"""
         return True
 
     def do_quit(self, line):
-        """exit the program"""
+        """Quit command to exit the program"""
         return True
     
     def emptyline(self):
