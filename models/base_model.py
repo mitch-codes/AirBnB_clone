@@ -28,10 +28,14 @@ class BaseModel:
             for key, value in kwargs.items():
                 if (key == "created_at"):
                     self.created_at = datetime.fromisoformat(value)
-                if (key == "updated_at"):
+                elif (key == "updated_at"):
                     self.created_at = datetime.fromisoformat(value)
-                if (key == "id"):
+                elif (key == "id"):
                     self.id = value
+                elif (key == "__class__"):
+                    pass
+                else:
+                    self.__setattr__(key, val)
         else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
