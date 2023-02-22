@@ -25,10 +25,8 @@ class FileStorage:
     def save(self):
         """write json data into file"""
         with open(self.__file_path, "w+") as f:
-            """data = json.dumps(self.__objects)"""
-            """#f.write(data)"""
-            json.dump({k: v.to_dict() for k, v in self.__objects.items()
-                       }, f)
+            data = json.dumps(self.__objects)
+            f.write(data)
 
     def reload(self):
         """deserialize json data in file"""
