@@ -32,12 +32,9 @@ class FileStorage:
         """deserialize json data in file"""
         try:
             with open (self.__file_path, "r") as f:
-                data = f.read()
-                new_obj = json.loads(data)
-                for k, v in new_obj.items():
-                    if k not in self.__objects:
-                        name = v['__class__']
-                        obj = eval(f'{name}(**v)')
-                        self.new(obj)
+                dict = json.loads(f.read())
+                for value in dict.values():
+                    cls = value["__class__"]
+                    self.new(eval(cls)(**value))
         except:
             pass
