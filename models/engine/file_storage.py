@@ -13,6 +13,7 @@ class FileStorage:
     
     __file_path = "file.json"
     __objects = {}
+    __myobjects = {}
     
     def all(self):
         """return dictionary of objects"""
@@ -23,14 +24,13 @@ class FileStorage:
         myId = obj.__class__.__name__ + "." + obj.id
         #self.__objects[myId] = obj
         self.__objects[myId] = obj
+        self.__myobjects[myId] = obj.to_dict()
     
     def save(self):
         """write json data into file"""
-        json_objects = {}
-        for key in self.__objects:
-            json_objects[key] = self.__objects[key].to_dict()
+        data = json.dumps(self.__myobjects)
         with open(self.__file_path, 'w') as f:
-            json.dump(json_objects, f)
+            f.write(data)
 
     def reload(self):
         """deserialize json data in file"""
