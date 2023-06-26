@@ -31,7 +31,7 @@ class FileStorage:
             f.write(data)
 	"""
 	my_obj_dict = {}
-        for key in FileStorage.__objects:
+        for key in self.__objects:
             my_obj_dict[key] = self.__objects[key].to_dict()
         with open(self.__file_path, 'w') as f:
             json.dump(my_obj_dict, f)
@@ -62,6 +62,4 @@ class FileStorage:
             for key in objects:
                 name = key.split(".")[0]
                 self.__objects[key] = my_dict[name](**objects[key])
-	
-		
 
