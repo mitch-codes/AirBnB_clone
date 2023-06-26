@@ -31,16 +31,10 @@ class FileStorage:
 
     def reload(self):
         """deserialize json data in file"""
-        my_dict = {
-            "BaseModel": BaseModel,
-            }
         try:
             with open(self.__file_path, "r") as f:
                 dict = json.loads(f.read())
                 self.__objects = {}
-                for key in dict:
-                    name = key.split(".")[0]
-                    self.__objects[key] = my_dict[name](**dict[key])
-            #self.__objects.update(dict)
+                self.__objects.update(dict)
         except:
             pass
