@@ -35,6 +35,8 @@ class FileStorage:
             with open(self.__file_path, "r") as f:
                 dict = json.loads(f.read())
                 self.__objects = {}
-                self.__objects.update(dict)
+                for key in dict:
+                    self.objects[key] = dict[key]
+                #self.__objects.update(dict)
         except:
             pass
