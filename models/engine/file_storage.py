@@ -39,6 +39,6 @@ class FileStorage:
                 dict = json.loads(f.read())
                 self.__objects = {}
                 for key in dict:
-                    self.__objects[key] = (**dict[key])
+                    self.__objects[key] = BaseModel(**dict[key])
         except:
             pass
