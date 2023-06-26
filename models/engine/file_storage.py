@@ -6,8 +6,7 @@ Contains the FileStorage class
 import json
 from models.base_model import BaseModel
 
-classes = {"Amenity": Amenity, "BaseModel": BaseModel, "City": City,
-           "Place": Place, "Review": Review, "State": State, "User": User}
+classes = {"BaseModel": BaseModel}
 
 
 class FileStorage:
