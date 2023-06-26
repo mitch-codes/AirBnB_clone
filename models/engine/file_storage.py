@@ -28,7 +28,7 @@ class FileStorage:
         """write json data into file"""
         with open(self.__file_path, "w+") as f:
             mydicts = {}
-	    for key in self.__objects:
+            for key in self.__objects:
                 mydicts[key] = self.__objects[key].to_dict()
             #data = json.dumps(self.__objects)
             data = json.dumps(mydicts)
