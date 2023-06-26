@@ -21,12 +21,17 @@ class FileStorage:
     def new(self, obj):
         """sets __object width object and object.id as key"""
         myId = obj.__class__.__name__ + "." + obj.id
-        self.__objects[myId] = obj.to_dict()
+        #self.__objects[myId] = obj.to_dict()
+	self.__objects[myId] = obj
     
     def save(self):
         """write json data into file"""
         with open(self.__file_path, "w+") as f:
-            data = json.dumps(self.__objects)
+            mydicts = {}
+	    for key, value in self.__objects:
+                mydicts[key] = value.to_dict()
+            #data = json.dumps(self.__objects)
+            data = json.dumps(mydicts)
             f.write(data)
 
     def reload(self):
@@ -35,9 +40,6 @@ class FileStorage:
             with open(self.__file_path, "r") as f:
                 dict = json.loads(f.read())
                 self.__objects = {}
-                for value in dict.values():
-                    cls = value["__class__"]
-                    self.new(eval(cls)(**value))
-                #self.__objects.update(dict)
+                self.__objects.update(dict)
         except:
             pass
