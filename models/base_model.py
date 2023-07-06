@@ -29,7 +29,7 @@ class BaseModel:
                 if (key == "created_at"):
                     self.created_at = datetime.fromisoformat(value)
                 elif (key == "updated_at"):
-                    self.created_at = datetime.fromisoformat(value)
+                    self.updated_at = datetime.fromisoformat(value)
                 elif (key == "id"):
                     self.id = value
                 elif (key == "__class__"):
