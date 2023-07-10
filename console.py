@@ -33,6 +33,25 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** class name missing **")
 
+    def do_show(self, args):
+        """show object based on class name and id"""
+        myArgs = args.split(" ")
+        my_object = storage.all()
+        print(myArgs)
+        print(len(myArgs))
+        if len(myArgs) < 1:
+            print("** class name missing **")
+        elif len(myArgs) < 2:
+            print("** instance id missing **")
+        else:
+            if myArgs[0] not in self.classNames:
+                print("** class doesn't exist **")
+            else:
+                if "{}.{}".format(myArgs[0], myArgs[1]) not in my_object:
+                    print("** no instance found **")
+                else:
+                    print(my_object["{}.{}".format(myArgs[0], myArgs[1])])
+
     def emptyline(self):
         """action to take on empty line"""
         pass
