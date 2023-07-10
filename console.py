@@ -29,9 +29,9 @@ class HBNBCommand(cmd.Cmd):
             my_model.save()
             print(my_model.id)
         elif className:
-            print("class doesn't exist")
+            print("** class doesn't exist **")
         else:
-            print("class name missing")
+            print("** class name missing **")
 
     def emptyline(self):
         """action to take on empty line"""
