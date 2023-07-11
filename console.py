@@ -69,7 +69,7 @@ class HBNBCommand(cmd.Cmd):
                 if "{}.{}".format(myArgs[0], myArgs[1]) not in my_object:
                     print("** no instance found **")
                 else:
-                    my_object.pop("{}.{}".format(myArgs[0], myArgs[1]))
+                    storage.destroy("{}.{}".format(myArgs[0], myArgs[1]))
                     storage.save()
 
     def emptyline(self):
