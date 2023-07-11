@@ -35,22 +35,24 @@ class HBNBCommand(cmd.Cmd):
 
     def do_show(self, args):
         """show object based on class name and id"""
-        myArgs = args.split(" ")
-        my_object = storage.all()
-        print(myArgs)
-        print(len(myArgs))
-        if len(myArgs) == 0:
+        tokens = args.split(" ")
+        if len(tokens) == 0:
             print("** class name missing **")
-        elif len(myArgs) == 1:
+            return
+        if tokens[0] not in HBNBCommand.my_dict.keys():
+            print("** class doesn't exist **")
+            return
+        if len(tokens) <= 1:
             print("** instance id missing **")
+            return
+        storage.reload()
+        objs_dict = storage.all()
+        key = tokens[0] + "." + tokens[1]
+        if key in objs_dict:
+            obj_instance = str(objs_dict[key])
+            print(obj_instance)
         else:
-            if myArgs[0] not in self.classNames:
-                print("** class doesn't exist **")
-            else:
-                if "{}.{}".format(myArgs[0], myArgs[1]) not in my_object:
-                    print("** no instance found **")
-                else:
-                    print(my_object["{}.{}".format(myArgs[0], myArgs[1])])
+            print("** no instance found **")
 
     def do_destroy(self, args):
         """show object based on class name and id"""
