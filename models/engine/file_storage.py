@@ -32,6 +32,10 @@ class FileStorage:
         with open(self.__file_path, 'w') as f:
             f.write(data)
 
+    def destroy(self, objId):
+        """write json data into file"""
+        del self.__objects[objId]
+
     def reload(self):
         """deserialize json data in file"""
         try:
