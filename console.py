@@ -39,9 +39,9 @@ class HBNBCommand(cmd.Cmd):
         my_object = storage.all()
         print(myArgs)
         print(len(myArgs))
-        if len(myArgs) < 1:
+        if len(myArgs) == 0:
             print("** class name missing **")
-        elif len(myArgs) < 2:
+        elif len(myArgs) == 1:
             print("** instance id missing **")
         else:
             if myArgs[0] not in self.classNames:
