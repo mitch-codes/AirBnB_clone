@@ -76,7 +76,9 @@ class HBNBCommand(cmd.Cmd):
         """print all instances"""
         myArgs = args.split(" ")
         my_object = storage.all()
-        if myArgs[0] not in self.classNames:
+        if myArgs[0] == "":
+            print(my_object)
+        elif myArgs[0] not in self.classNames:
             print("** class doesn't exist **")
         else:
             print(my_object)
