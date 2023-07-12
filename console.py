@@ -72,6 +72,15 @@ class HBNBCommand(cmd.Cmd):
                     del my_object["{}.{}".format(myArgs[0], myArgs[1])]
                     storage.save()
 
+    def do_all(self, args):
+        """print all instances"""
+        myArgs = args.split(" ")
+        my_object = storage.all()
+        if myArgs[0] not in self.classNames:
+            print("** class doesn't exist **")
+        else:
+            print(my_object)
+
     def emptyline(self):
         """action to take on empty line"""
         pass
