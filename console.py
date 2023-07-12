@@ -83,6 +83,30 @@ class HBNBCommand(cmd.Cmd):
         else:
             print(my_object)
 
+    def do_update(self, args):
+        """update instance given class name, id, key and variable"""
+        myArgs = args.split(" ")
+        my_object = storage.all()
+        print(myArgs)
+        print(len(myArgs))
+        if myArgs[0] == "":
+            print("** class name missing **")
+        elif len(myArgs) == 1:
+            print("** instance id missing **")
+        elif len(myArgs) == 2:
+            print("** attribute name missing **")
+        elif len(myArgs) == 3:
+            print("** value missing **")
+        else:
+            if myArgs[0] not in self.classNames:
+                print("** class doesn't exist **")
+            else:
+                if "{}.{}".format(myArgs[0], myArgs[1]) not in my_object:
+                    print("** no instance found **")
+                else:
+                    my_object["{}.{}".format(myArgs[0], myArgs[1])]["{}".format(myArgs[2])] = myArgs[3]
+                    storage.save()
+
     def emptyline(self):
         """action to take on empty line"""
         pass
