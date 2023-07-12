@@ -25,7 +25,8 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, className):
         """create a new object and save it"""
         if className and className in self.classNames:
-            my_model = BaseModel()
+            #my_model = BaseModel()
+            my_model = eval(className)()
             my_model.save()
             print(my_model.id)
         elif className:
