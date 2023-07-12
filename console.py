@@ -12,7 +12,7 @@ class HBNBCommand(cmd.Cmd):
     """a class that inherits from cmd"""
 
     prompt = "(hbnb) "
-    classNames = ["BaseModel"]
+    classNames = ["BaseModel", "User"]
 
     def do_EOF(self, line):
         """exit the program"""
