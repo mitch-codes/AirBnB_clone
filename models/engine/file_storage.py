@@ -39,6 +39,7 @@ class FileStorage:
                 dict = json.loads(f.read())
                 self.__objects = {}
                 for key in dict:
-                    self.__objects[key] = BaseModel(**dict[key])
+                    myCls = key.split('.', 1)[0]
+                    self.__objects[key] = eval(myCls)(**dict[key])
         except:
             pass
