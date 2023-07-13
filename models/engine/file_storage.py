@@ -24,13 +24,16 @@ class FileStorage:
         myId = obj.__class__.__name__ + "." + obj.id
         #self.__objects[myId] = obj
         self.__objects[myId] = obj
-        self.__myobjects[myId] = obj.to_dict()
+        #self.__myobjects[myId] = obj.to_dict()
     
     def save(self):
         """write json data into file"""
-        data = json.dumps(self.__myobjects)
-        with open(self.__file_path, 'w') as f:
-            f.write(data)
+        #data = json.dumps(self.__myobjects)
+        new_dict = {}
+        for key, value in self.__objects.items():
+            new_dict[key] = value.to_dict()
+        with open(self.__file_path, 'w', encoding="UTF-8") as f:
+            json.dump(new_dict, f)
 
     def reload(self):
         """deserialize json data in file"""
