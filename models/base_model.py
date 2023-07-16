@@ -62,6 +62,6 @@ class BaseModel:
                 my_dict[key] = value.isoformat()
             else:
                 my_dict[key] = value
-        my_dict["__class__"] = __class__.__name__
+        #my_dict["__class__"] = __class__.__name__
         return (my_dict)
 
