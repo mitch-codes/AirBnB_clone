@@ -52,7 +52,9 @@ class HBNBCommand(cmd.Cmd):
                 if "{}.{}".format(myArgs[0], myArgs[1]) not in my_object:
                     print("** no instance found **")
                 else:
-                    print(my_object["{}.{}".format(myArgs[0], myArgs[1])])
+                    #print(my_object["{}.{}".format(myArgs[0], myArgs[1])])
+                    individualDict = my_object["{}.{}".format(myArgs[0], myArgs[1])].to_dict()
+                    print("[{}] ({}) {}".format(individualDict['__class__'], individualDict['id'], individualDict))
 
     def do_destroy(self, args):
         """show object based on class name and id"""
