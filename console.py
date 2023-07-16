@@ -39,8 +39,8 @@ class HBNBCommand(cmd.Cmd):
         """show object based on class name and id"""
         myArgs = args.split(" ")
         my_object = storage.all()
-        print(myArgs)
-        print(len(myArgs))
+        #print(myArgs)
+        #print(len(myArgs))
         if myArgs[0] == "":
             print("** class name missing **")
         elif len(myArgs) == 1:
@@ -53,8 +53,9 @@ class HBNBCommand(cmd.Cmd):
                     print("** no instance found **")
                 else:
                     #print(my_object["{}.{}".format(myArgs[0], myArgs[1])])
-                    individualDict = my_object["{}.{}".format(myArgs[0], myArgs[1])].to_dict()
-                    print("[{}] ({}) {}".format(individualDict['__class__'], individualDict['id'], individualDict))
+                    new_obj = my_object["{}.{}".format(myArgs[0], myArgs[1])]
+                    individualDict = new_obj.to_dict()
+                    print("[{}] ({}) {}".format(new_obj.__class__.__name__, individualDict['id'], individualDict))
 
     def do_destroy(self, args):
         """show object based on class name and id"""
