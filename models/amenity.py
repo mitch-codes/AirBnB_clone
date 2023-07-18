@@ -9,5 +9,4 @@ import json
 class Amenity(BaseModel):
     """this is a subclass of BaseModel"""
 
-    name = ""
-  
+    name = ""  
